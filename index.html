@@ -140,7 +140,7 @@
                 </div>
                 
                 
-                <div class="mbr-section-btn align-center mt-5"><a class="btn btn-danger-outline display-4" onclick="MarcarData()">Clique Aqui para agendar no Calendário</a></div>
+                <div class="mbr-section-btn align-center mt-5"><a class="btn btn-danger-outline display-4" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Meu+Evento&dates=20250330T160000Z/20250330T170000Z&details=Detalhes+do+evento&location=https://www.google.com/maps?q=-23.9608,-46.3325" target="_blank" >Clique Aqui para agendar no Calendário</a></div>
             </div>
         </div>
     </div>
@@ -357,28 +357,28 @@
   <input name="animation" type="hidden">
   </body>
   <script>
-   function MarcarData() {
-            const calendarData = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:Casamento Victor e Aridiane
-DTSTART:20250814T160000Z
-DTEND:20250816T170000Z
-LOCATION: https://maps.app.goo.gl/QfEAgE3YPN51F2EM8
-DESCRIPTION: Clique no link da localização para abrir o mapa.
-END:VEVENT
-END:VCALENDAR`;
+//    function MarcarData() {
+//             const calendarData = `BEGIN:VCALENDAR
+// VERSION:2.0
+// BEGIN:VEVENT
+// SUMMARY:Casamento Victor e Aridiane
+// DTSTART:20250814T160000Z
+// DTEND:20250816T170000Z
+// LOCATION: https://maps.app.goo.gl/QfEAgE3YPN51F2EM8
+// DESCRIPTION: Clique no link da localização para abrir o mapa.
+// END:VEVENT
+// END:VCALENDAR`;
 
-            const blob = new Blob([calendarData], { type: 'text/calendar' });
-            const url = URL.createObjectURL(blob);
+//             const blob = new Blob([calendarData], { type: 'text/calendar' });
+//             const url = URL.createObjectURL(blob);
 
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'evento.ics';
-            a.click();
+//             const a = document.createElement('a');
+//             a.href = url;
+//             a.download = 'evento.ics';
+//             a.click();
 
-            URL.revokeObjectURL(url);
-        }
+//             URL.revokeObjectURL(url);
+//         }
   
   </script>
 </html>
