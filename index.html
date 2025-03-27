@@ -185,8 +185,9 @@
 
 
           <div class="mbr-section-btn align-center mt-5"><a class="btn btn-danger-outline display-4"
-              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Casamento+Victor+e+Ari&dates=20250814T160000Z/20250816T050000Z&details=Detalhes+do+evento&location=https://maps.app.goo.gl/QfEAgE3YPN51F2EM8"
-              target="_blank">Clique Aqui para agendar no Calendário</a></div>
+              href="#" onclick="verificarDispositivoCalendario() " 
+              target="_blank">Clique Aqui para agendar no Calendário</a>
+            </div>
         </div>
       </div>
     </div>
@@ -421,9 +422,9 @@
               </div>
               <div><strong>Local de Estacionamento: </strong>Estará indicado por uma placa</div>
             </h6>
-            <div class="mbr-section-btn item-footer mt-3 main-button"><a href="https://maps.app.goo.gl/GGK4mCtB4E9YvEZV8"
+            <div class="mbr-section-btn item-footer mt-3 main-button"><a href="#" onclick="verificarDispositivo()"
                 class="btn item-btn btn-primary display-4"><span
-                  class="mobi-mbri mobi-mbri-paper-plane mbr-iconfont mbr-iconfont-btn"></span>Abrir no GPS</a></div>
+                  class="mobi-mbri mobi-mbri-paper-plane mbr-iconfont mbr-iconfont-btn" ></span>Abrir no GPS</a></div>
           </div>
         </div>
         <div class="col-lg-8 side-features">
@@ -468,14 +469,7 @@
       </div>
     </div>
   </section>
-  <section class="display-7"
-    style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;">
-    <a href="https://mobiri.se/311348" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img
-        alt="" style="height: 4rem;"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-    <p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1"
-      href="https://mobirise.com"> Website Building Software</a>
-  </section>
+ 
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/parallax/jarallax.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
@@ -492,28 +486,45 @@
   <input name="animation" type="hidden">
 </body>
 <script>
-  //    function MarcarData() {
-  //             const calendarData = `BEGIN:VCALENDAR
-  // VERSION:2.0
-  // BEGIN:VEVENT
-  // SUMMARY:Casamento Victor e Aridiane
-  // DTSTART:20250814T160000Z
-  // DTEND:20250816T170000Z
-  // LOCATION: https://maps.app.goo.gl/QfEAgE3YPN51F2EM8
-  // DESCRIPTION: Clique no link da localização para abrir o mapa.
-  // END:VEVENT
-  // END:VCALENDAR`;
 
-  //             const blob = new Blob([calendarData], { type: 'text/calendar' });
-  //             const url = URL.createObjectURL(blob);
+  function verificarDispositivoCalendario() {
+        // URL do Google Calendar
+        const urlGoogleCalendar = "https://www.google.com/calendar/render?action=TEMPLATE&text=Casamento+Victor+e+Ari&dates=20250814T160000Z/20250816T050000Z&details=Detalhes+do+evento&location=https://maps.app.goo.gl/QfEAgE3YPN51F2EM8";
+        // URL para o esquema do Apple Calendar (webcal)
+        const urlAppleCalendar = "event.ics"; 
 
-  //             const a = document.createElement('a');
-  //             a.href = url;
-  //             a.download = 'evento.ics';
-  //             a.click();
+        // Detecta o tipo de dispositivo
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-  //             URL.revokeObjectURL(url);
-  //         }
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            // Redireciona para o Apple Calendar
+            window.location.href = urlAppleCalendar;
+        } else {
+            // Redireciona para o Google Calendar
+            window.location.href = urlGoogleCalendar;
+        }
+    }
+
+
+ function verificarDispositivo() {
+        // URL do evento no Google Maps
+        const urlGoogleMaps = "https://maps.app.goo.gl/GGK4mCtB4E9YvEZV8";
+        // URL equivalente para o Apple Maps
+        const urlAppleMaps = "https://beta.maps.apple.com/?auid=17718453791300953044&lsp=9902";
+
+        // Detecta o sistema operacional do dispositivo
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            // Se o dispositivo for iPhone, redireciona para o Apple Maps
+            window.location.href = urlAppleMaps;
+        } else {
+            // Caso contrário, redireciona para o Google Maps
+            window.location.href = urlGoogleMaps;
+        }
+    }
+
+    
 
 </script>
 
